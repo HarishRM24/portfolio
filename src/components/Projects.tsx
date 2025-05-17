@@ -24,7 +24,7 @@ const projects = [
     description: "An intelligent chatbot built with Google Dialogflow that answers common health questions and helps users find relevant medical information.",
     tags: ["Google Dialogflow", "NLP", "JavaScript", "Node.js", "Healthcare"],
     githubLink: "https://github.com",
-    demoLink: "#"
+    demoLink: "https://medaichatbot.vercel.app/"
   }
 ];
 
