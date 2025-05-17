@@ -1,46 +1,46 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Javascript, Java, Python, React, Node, Flask, Ios, Mysql, Firebase, Mongodb, Git, Jira, VsCode, Pycharm } from "lucide-react";
+import { Code, Coffee, FileCode, Smartphone, Database, Server, GitBranch, BarChart3, Laptop, Brain } from "lucide-react";
 
 const skillCategories = [
   {
     name: "Languages",
     skills: [
-      { name: "Java", level: 90, icon: Java },
-      { name: "C++", level: 85, icon: Javascript }, // Using Javascript icon as placeholder for C++
-      { name: "Python", level: 95, icon: Python }
+      { name: "Java", level: 90, icon: Coffee },
+      { name: "C++", level: 85, icon: FileCode }, 
+      { name: "Python", level: 95, icon: Code }
     ]
   },
   {
     name: "Web/Frameworks",
     skills: [
-      { name: "React.js", level: 85, icon: React },
-      { name: "Node.js", level: 80, icon: Node },
-      { name: "Flask", level: 90, icon: Flask }
+      { name: "React.js", level: 85, icon: Code },
+      { name: "Node.js", level: 80, icon: Server },
+      { name: "Flask", level: 90, icon: FileCode }
     ]
   },
   {
     name: "Mobile Dev",
     skills: [
-      { name: "iOS", level: 75, icon: Ios }
+      { name: "iOS", level: 75, icon: Smartphone }
     ]
   },
   {
     name: "Databases",
     skills: [
-      { name: "MySQL", level: 85, icon: Mysql },
-      { name: "Firebase", level: 80, icon: Firebase },
-      { name: "MongoDB", level: 75, icon: Mongodb }
+      { name: "MySQL", level: 85, icon: Database },
+      { name: "Firebase", level: 80, icon: Server },
+      { name: "MongoDB", level: 75, icon: Database }
     ]
   },
   {
     name: "Tools",
     skills: [
-      { name: "Git", level: 95, icon: Git },
-      { name: "Jira", level: 80, icon: Jira },
-      { name: "VS Code", level: 90, icon: VsCode },
-      { name: "PyCharm", level: 85, icon: Pycharm }
+      { name: "Git", level: 95, icon: GitBranch },
+      { name: "Jira", level: 80, icon: BarChart3 },
+      { name: "VS Code", level: 90, icon: Laptop },
+      { name: "PyCharm", level: 85, icon: Brain }
     ]
   }
 ];
