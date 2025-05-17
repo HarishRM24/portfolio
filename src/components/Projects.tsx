@@ -9,21 +9,21 @@ const projects = [
     title: "World Happiness Prediction Website",
     description: "A web application that predicts happiness scores for countries based on various socio-economic factors using machine learning models.",
     tags: ["Flask", "Python", "Machine Learning", "Pandas", "Scikit-learn"],
-    githubLink: "https://github.com",
-    demoLink: "#"
+    githubLink: "https://github.com/HarishRM24/World_happinesss_ML",
+    demoLink: "http://happinesspredictor.pythonanywhere.com/"
   },
   {
     title: "Federated Learning on Arrhythmia Detection",
     description: "Privacy-preserving machine learning approach for detecting cardiac arrhythmias using CNN models trained across multiple institutions without sharing sensitive patient data.",
     tags: ["PyTorch", "TensorFlow Federated", "CNN", "Healthcare AI", "Privacy"],
-    githubLink: "https://github.com",
+    githubLink: "https://github.com/HarishRM24",
     demoLink: null
   },
   {
     title: "Medical Chatbot",
     description: "An intelligent chatbot built with Google Dialogflow that answers common health questions and helps users find relevant medical information.",
     tags: ["Google Dialogflow", "NLP", "JavaScript", "Node.js", "Healthcare"],
-    githubLink: "https://github.com",
+    githubLink: "https://github.com/HarishRM24",
     demoLink: "https://medaichatbot.vercel.app/"
   }
 ];
