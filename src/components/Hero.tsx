@@ -31,12 +31,12 @@ const Hero = () => {
               </div>
               <div className="flex gap-4 mt-8">
                 <Button size="icon" variant="outline" asChild>
-                  <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <a href="https://github.com/HarishRM24" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <Github size={20} />
                   </a>
                 </Button>
                 <Button size="icon" variant="outline" asChild>
-                  <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <a href="https://www.linkedin.com/in/harish-arasu-890a4824b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <Linkedin size={20} />
                   </a>
                 </Button>
@@ -51,7 +51,7 @@ const Hero = () => {
           <div className="w-full md:w-1/2 order-1 md:order-2 flex justify-center md:justify-end">
             <div className="w-48 h-48 md:w-64 md:h-64 relative rounded-full border-4 border-primary overflow-hidden animate-fade-in">
               <img
-                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+                src="/lovable-uploads/59435d0c-eb85-4244-a36c-fa5d7aaf339b.png"
                 alt="Harish A"
                 className="w-full h-full object-cover"
               />

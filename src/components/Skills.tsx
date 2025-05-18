@@ -1,60 +1,56 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Code, Coffee, FileCode, Smartphone, Database, Server, GitBranch, BarChart3, Laptop, Brain } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const skillCategories = [
   {
     name: "Languages",
     skills: [
-      { name: "Java", level: 90, icon: Coffee },
-      { name: "C++", level: 85, icon: FileCode }, 
-      { name: "Python", level: 95, icon: Code }
+      { name: "Java", icon: Coffee },
+      { name: "C++", icon: FileCode }, 
+      { name: "Python", icon: Code }
     ]
   },
   {
     name: "Web/Frameworks",
     skills: [
-      { name: "React.js", level: 85, icon: Code },
-      { name: "Node.js", level: 80, icon: Server },
-      { name: "Flask", level: 90, icon: FileCode }
+      { name: "React.js", icon: Code },
+      { name: "Node.js", icon: Server },
+      { name: "Flask", icon: FileCode }
     ]
   },
   {
     name: "Mobile Dev",
     skills: [
-      { name: "iOS", level: 75, icon: Smartphone }
+      { name: "iOS", icon: Smartphone }
     ]
   },
   {
     name: "Databases",
     skills: [
-      { name: "MySQL", level: 85, icon: Database },
-      { name: "Firebase", level: 80, icon: Server },
-      { name: "MongoDB", level: 75, icon: Database }
+      { name: "MySQL", icon: Database },
+      { name: "Firebase", icon: Server },
+      { name: "MongoDB", icon: Database }
     ]
   },
   {
     name: "Tools",
     skills: [
-      { name: "Git", level: 95, icon: GitBranch },
-      { name: "Jira", level: 80, icon: BarChart3 },
-      { name: "VS Code", level: 90, icon: Laptop },
-      { name: "PyCharm", level: 85, icon: Brain }
+      { name: "Git", icon: GitBranch },
+      { name: "Jira", icon: BarChart3 },
+      { name: "VS Code", icon: Laptop },
+      { name: "PyCharm", icon: Brain }
     ]
   }
 ];
 
-const SkillItem = ({ name, level, Icon }) => (
-  <div className="mb-6">
-    <div className="flex justify-between items-center mb-2">
-      <div className="flex items-center gap-2">
-        <Icon size={18} />
-        <span>{name}</span>
-      </div>
-      <span className="text-sm font-medium">{level}%</span>
-    </div>
-    <Progress value={level} className="h-2" />
+const SkillItem = ({ name, Icon }) => (
+  <div className="mb-4">
+    <Badge variant="outline" className="flex items-center gap-2 px-3 py-2 text-sm">
+      <Icon size={16} />
+      <span>{name}</span>
+    </Badge>
   </div>
 );
 
@@ -72,14 +68,15 @@ const Skills = () => {
             <Card key={index} className="border border-border hover:shadow-lg transition-all">
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-6">{category.name}</h3>
-                {category.skills.map((skill, idx) => (
-                  <SkillItem
-                    key={idx}
-                    name={skill.name}
-                    level={skill.level}
-                    Icon={skill.icon}
-                  />
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, idx) => (
+                    <SkillItem
+                      key={idx}
+                      name={skill.name}
+                      Icon={skill.icon}
+                    />
+                  ))}
+                </div>
               </CardContent>
             </Card>
           ))}
