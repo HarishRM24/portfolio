@@ -51,7 +51,7 @@ const Hero = () => {
           <div className="w-full md:w-1/2 order-1 md:order-2 flex justify-center md:justify-end">
             <div className="w-48 h-48 md:w-64 md:h-64 relative rounded-full border-4 border-primary overflow-hidden animate-fade-in">
               <img
-                src="/lovable-uploads/6cbd83b5-b482-4f28-b3d5-b283bf0fabc0.png"
+                src="/lovable-uploads/1de821bc-a1fb-4140-ae91-cd4e272f1627.png"
                 alt="Harish A"
                 className="w-full h-full object-cover"
               />

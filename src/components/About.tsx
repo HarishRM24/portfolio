@@ -44,7 +44,7 @@ const About = () => {
             </div>
             
             <Button asChild>
-              <a href="/resume.pdf" download>
+              <a href="https://drive.google.com/file/d/1zXXYHSa2iuQ3MsJ1uunZYvI3fwhK-cNv/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
                 <FileDown className="mr-2 h-4 w-4" />
                 Download Resume
               </a>
