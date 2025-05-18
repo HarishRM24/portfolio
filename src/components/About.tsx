@@ -15,7 +15,7 @@ const About = () => {
           <div className="w-full md:w-1/2 flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 relative rounded-lg overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+                src="/lovable-uploads/662510ef-688f-4f16-ae01-4e542f7b6f42.png"
                 alt="Harish A Working"
                 className="w-full h-full object-cover"
               />
