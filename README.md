@@ -2,8 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/94d76c8e-c931-4ab0-82c7-4f5955fbf4eb
-
+**URL**: https://tiny-talking-bot.lovable.app
 ## How can I edit this code?
 
 There are several ways of editing your application.
