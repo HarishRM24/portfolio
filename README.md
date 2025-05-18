@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/94d76c8e-c931-4ab0-82c7-4f5955fbf4eb) and start prompting.
+Simply visit the [Lovable Project](https://tiny-talking-bot.lovable.app) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
