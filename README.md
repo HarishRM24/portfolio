@@ -62,7 +62,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/94d76c8e-c931-4ab0-82c7-4f5955fbf4eb) and click on Share -> Publish.
+Simply open [Lovable](https://tiny-talking-bot.lovable.app) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
 
