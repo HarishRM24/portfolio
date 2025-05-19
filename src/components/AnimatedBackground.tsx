@@ -1,7 +1,7 @@
 
 import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { MeshDistortMaterial, Sphere } from '@react-three/drei';
+import { MeshDistortMaterial, OrbitControls, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface AnimatedSphereProps {
@@ -24,7 +24,7 @@ const AnimatedSphere = ({ position, scale, color, speed, distort }: AnimatedSphe
   });
   
   return (
-    <Sphere args={[1, 32, 32]} scale={scale} position={position} ref={meshRef}>
+    <Sphere args={[1, 16, 16]} scale={scale} position={position} ref={meshRef}>
       <MeshDistortMaterial 
         color={color} 
         attach="material" 
@@ -43,34 +43,53 @@ interface AnimatedBackgroundProps {
   className?: string;
 }
 
+// Create a simpler scene component to avoid WebGL context issues
+const Scene = () => {
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+      <AnimatedSphere 
+        position={[-2, -1, -2]} 
+        scale={1.5} 
+        color={new THREE.Color('#9b87f5')} 
+        speed={0.6} 
+        distort={0.4} 
+      />
+      <AnimatedSphere 
+        position={[2, 1, -4]} 
+        scale={2} 
+        color={new THREE.Color('#9b65f5')} 
+        speed={0.4} 
+        distort={0.5} 
+      />
+      <AnimatedSphere 
+        position={[0, -2, -6]} 
+        scale={3} 
+        color={new THREE.Color('#8b5cf6')} 
+        speed={0.3} 
+        distort={0.3} 
+      />
+      <OrbitControls enableZoom={false} enablePan={false} />
+    </>
+  );
+};
+
 const AnimatedBackground = ({ className = "" }: AnimatedBackgroundProps) => {
   return (
     <div className={`fixed inset-0 -z-10 opacity-50 ${className}`}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        dpr={[1, 2]} // Limit pixel ratio to improve performance
+        gl={{ 
+          antialias: false, // Disable antialiasing for better performance
+          alpha: true,
+          powerPreference: 'default',
+          failIfMajorPerformanceCaveat: true
+        }}
+      >
         <Suspense fallback={null}>
-          <AnimatedSphere 
-            position={[-2, -1, -2]} 
-            scale={1.5} 
-            color={new THREE.Color('#9b87f5')} 
-            speed={0.6} 
-            distort={0.4} 
-          />
-          <AnimatedSphere 
-            position={[2, 1, -4]} 
-            scale={2} 
-            color={new THREE.Color('#9b65f5')} 
-            speed={0.4} 
-            distort={0.5} 
-          />
-          <AnimatedSphere 
-            position={[0, -2, -6]} 
-            scale={3} 
-            color={new THREE.Color('#8b5cf6')} 
-            speed={0.3} 
-            distort={0.3} 
-          />
+          <Scene />
         </Suspense>
       </Canvas>
     </div>
