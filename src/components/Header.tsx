@@ -37,48 +37,52 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-background/80 backdrop-blur-md shadow-md py-3"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="text-xl md:text-2xl font-bold">
-          <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-            Harish A
-          </span>
-        </div>
-        <nav className="hidden md:flex gap-6 items-center">
-          {["Home", "About", "Experience", "Projects", "Skills", "Certifications", "Contact"].map(
-            (item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-foreground/80 hover:text-primary transition-colors"
-              >
-                {item}
-              </a>
-            )
-          )}
-        </nav>
-        <div className="flex items-center gap-2">
-          <Button
-            size="icon"
-            variant="ghost"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-          </Button>
-          <Button
-            variant="outline"
-            className="hidden md:flex"
-            asChild
-          >
-            <a href="#contact">Contact Me</a>
-          </Button>
-          <MobileNav />
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          <div className="text-xl md:text-2xl font-bold">
+            <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+              Harish A
+            </span>
+          </div>
+          <nav className="hidden md:flex gap-6 items-center">
+            {["Home", "About", "Experience", "Projects", "Skills", "Certifications", "Contact"].map(
+              (item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-foreground/80 hover:text-primary relative group transition-colors"
+                >
+                  {item}
+                  <span className="absolute left-0 right-0 bottom-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </a>
+              )
+            )}
+          </nav>
+          <div className="flex items-center gap-2">
+            <Button
+              size="icon"
+              variant="ghost"
+              onClick={toggleTheme}
+              className="rounded-full hover:bg-primary/10"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+            </Button>
+            <Button
+              variant="outline"
+              className="hidden md:flex bg-gradient-to-r from-primary/10 to-purple-500/10 border-primary/20 hover:border-primary/50 hover:bg-primary/5"
+              asChild
+            >
+              <a href="#contact">Contact Me</a>
+            </Button>
+            <MobileNav />
+          </div>
         </div>
       </div>
     </header>
