@@ -3,8 +3,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Send } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -24,24 +26,50 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // EmailJS service ID, template ID, and user ID
+    const serviceID = 'service_default';  // Replace with your EmailJS service ID
+    const templateID = 'template_default'; // Replace with your EmailJS template ID
+    const userID = 'user_default'; // Replace with your EmailJS user ID
+    
+    try {
+      // Prepare the template parameters
+      const templateParams = {
+        from_name: formData.name,
+        reply_to: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'harish.arasu2002@gmail.com' // Your email address
+      };
+      
+      // Send the email using EmailJS
+      await emailjs.send(serviceID, templateID, templateParams, userID);
+      
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
+      
+      // Reset form after successful submission
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: ""
       });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -128,14 +156,14 @@ const Contact = () => {
               
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
-                <textarea
+                <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Your message"
                   rows={5}
-                  className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
+                  className="resize-none"
                   required
                 />
               </div>
