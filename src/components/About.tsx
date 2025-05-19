@@ -39,7 +39,7 @@ const About = () => {
           
           <div className="w-full md:w-1/2">
             <p className="text-lg mb-6">
-              I'm a passionate Software Engineer and Machine Learning enthusiast pursuing an Integrated MTech in Software Engineering from VIT (2020-2025). I love solving complex problems and building intelligent solutions that make a difference.
+              I'm a passionate Software Engineer and Machine Learning enthusiast pursuing an Integrated MTech in Software Engineering from VIT, Vellore (2020-2025). I love solving complex problems and building intelligent solutions that make a difference.
             </p>
             <p className="text-lg mb-6">
               My current interests include deep learning, natural language processing, and developing full-stack applications. I'm particularly fascinated by the intersection of AI and healthcare, where I believe technology can create the most meaningful impact.
@@ -49,7 +49,7 @@ const About = () => {
               <div className="bg-background/80 backdrop-blur-sm rounded-md p-4 flex-1 min-w-[200px] shadow-lg border border-primary/10 card-hover">
                 <h3 className="text-lg font-bold text-gradient">Education</h3>
                 <p>Integrated MTech, Software Engineering</p>
-                <p>VIT, 2020-2025</p>
+                <p>VIT, Vellore, 2020-2025</p>
               </div>
               <div className="bg-background/80 backdrop-blur-sm rounded-md p-4 flex-1 min-w-[200px] shadow-lg border border-primary/10 card-hover">
                 <h3 className="text-lg font-bold text-gradient">Interests</h3>

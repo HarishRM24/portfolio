@@ -6,18 +6,25 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
+    title: "Federated Learning on Epilepsy Detection",
+    description: "Developed a privacy-preserving deep learning model for epilepsy detection using EEG data, implementing Federated Learning across decentralized nodes while ensuring data privacy.",
+    tags: ["CNN", "PyTorch", "PySyft", "Federated Learning", "Healthcare AI"],
+    githubLink: "https://github.com/HarishRM24",
+    demoLink: null
+  },
+  {
+    title: "Alzheimer's Disease Detection with Hybrid Models",
+    description: "Built two hybrid deep learning models (ResNet50 + CNN and EfficientNet + CNN) to classify Alzheimer's disease stages from MRI scans, achieving high classification accuracy.",
+    tags: ["PyTorch", "ResNet50", "EfficientNet", "Medical Imaging", "Transfer Learning"],
+    githubLink: "https://github.com/HarishRM24",
+    demoLink: null
+  },
+  {
     title: "World Happiness Prediction Website",
     description: "A web application that predicts happiness scores for countries based on various socio-economic factors using machine learning models.",
     tags: ["Flask", "Python", "Machine Learning", "Pandas", "Scikit-learn"],
     githubLink: "https://github.com/HarishRM24/World_happinesss_ML",
     demoLink: "http://happinesspredictor.pythonanywhere.com/"
-  },
-  {
-    title: "Federated Learning on Arrhythmia Detection",
-    description: "Privacy-preserving machine learning approach for detecting cardiac arrhythmias using CNN models trained across multiple institutions without sharing sensitive patient data.",
-    tags: ["PyTorch", "TensorFlow Federated", "CNN", "Healthcare AI", "Privacy"],
-    githubLink: "https://github.com/HarishRM24",
-    demoLink: null
   },
   {
     title: "Medical Chatbot",
@@ -37,7 +44,7 @@ const Projects = () => {
         </h2>
         <div className="w-16 h-1 bg-primary mx-auto mb-12"></div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="flex flex-col h-full border border-border hover:shadow-lg transition-all">
               <CardHeader>
