@@ -4,8 +4,16 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { MeshDistortMaterial, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
-const AnimatedSphere = ({ position, scale, color, speed, distort }) => {
-  const meshRef = useRef();
+interface AnimatedSphereProps {
+  position: [number, number, number];
+  scale: number;
+  color: THREE.Color;
+  speed: number;
+  distort: number;
+}
+
+const AnimatedSphere = ({ position, scale, color, speed, distort }: AnimatedSphereProps) => {
+  const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
     if (meshRef.current) {
@@ -25,13 +33,17 @@ const AnimatedSphere = ({ position, scale, color, speed, distort }) => {
         roughness={0.5} 
         metalness={0.2}
         opacity={0.7}
-        transparent={true}
+        transparent
       />
     </Sphere>
   );
 };
 
-const AnimatedBackground = ({ className = "" }) => {
+interface AnimatedBackgroundProps {
+  className?: string;
+}
+
+const AnimatedBackground = ({ className = "" }: AnimatedBackgroundProps) => {
   return (
     <div className={`fixed inset-0 -z-10 opacity-50 ${className}`}>
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
