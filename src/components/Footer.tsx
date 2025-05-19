@@ -33,6 +33,24 @@ const Footer = () => {
               <Linkedin size={18} />
             </a>
             <a 
+              href="https://www.geeksforgeeks.org/user/harisharasu2002/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
+              aria-label="GeeksforGeeks"
+            >
+              <span className="font-bold text-xs">GfG</span>
+            </a>
+            <a 
+              href="https://leetcode.com/u/harishRM/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
+              aria-label="LeetCode"
+            >
+              <span className="font-bold text-xs">LC</span>
+            </a>
+            <a 
               href="mailto:harish.arasu2002@gmail.com" 
               className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-accent transition-colors"
               aria-label="Email"
