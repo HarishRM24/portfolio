@@ -1,97 +1,59 @@
 
-import { useRef, Suspense } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { MeshDistortMaterial, OrbitControls, Sphere } from '@react-three/drei';
-import * as THREE from 'three';
-
-interface AnimatedSphereProps {
-  position: [number, number, number];
-  scale: number;
-  color: THREE.Color;
-  speed: number;
-  distort: number;
-}
-
-const AnimatedSphere = ({ position, scale, color, speed, distort }: AnimatedSphereProps) => {
-  const meshRef = useRef<THREE.Mesh>(null);
-  
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * speed * 0.2) * 0.2;
-      meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * speed * 0.4) * 0.2;
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * speed) * 0.2 + position[1];
-    }
-  });
-  
-  return (
-    <Sphere args={[1, 16, 16]} scale={scale} position={position} ref={meshRef}>
-      <MeshDistortMaterial 
-        color={color} 
-        attach="material" 
-        distort={distort} 
-        speed={speed} 
-        roughness={0.5} 
-        metalness={0.2}
-        opacity={0.7}
-        transparent
-      />
-    </Sphere>
-  );
-};
+import React, { useEffect, useState } from 'react';
 
 interface AnimatedBackgroundProps {
   className?: string;
 }
 
-// Create a simpler scene component to avoid WebGL context issues
-const Scene = () => {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <AnimatedSphere 
-        position={[-2, -1, -2]} 
-        scale={1.5} 
-        color={new THREE.Color('#9b87f5')} 
-        speed={0.6} 
-        distort={0.4} 
-      />
-      <AnimatedSphere 
-        position={[2, 1, -4]} 
-        scale={2} 
-        color={new THREE.Color('#9b65f5')} 
-        speed={0.4} 
-        distort={0.5} 
-      />
-      <AnimatedSphere 
-        position={[0, -2, -6]} 
-        scale={3} 
-        color={new THREE.Color('#8b5cf6')} 
-        speed={0.3} 
-        distort={0.3} 
-      />
-      <OrbitControls enableZoom={false} enablePan={false} />
-    </>
-  );
-};
-
 const AnimatedBackground = ({ className = "" }: AnimatedBackgroundProps) => {
+  const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  
+  // Dynamically import Three.js components only when needed
+  useEffect(() => {
+    let isMounted = true;
+    
+    const loadThreeComponents = async () => {
+      try {
+        // Import components dynamically to avoid issues at build time
+        const ReactThreeModule = await import('@react-three/fiber');
+        const DreiModule = await import('@react-three/drei');
+        const ThreeModule = await import('three');
+        
+        // If everything loaded successfully and component is still mounted
+        if (isMounted) {
+          setLoaded(true);
+        }
+      } catch (err) {
+        console.error("Failed to load 3D components:", err);
+        if (isMounted) {
+          setError(true);
+        }
+      }
+    };
+    
+    loadThreeComponents();
+    
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+  
+  // If there was an error loading the Three.js components, render nothing
+  if (error) {
+    return null;
+  }
+  
+  // If not yet loaded, render nothing (the fallback will be visible)
+  if (!loaded) {
+    return null;
+  }
+  
+  // Render a simple placeholder that doesn't use any Three.js
+  // The real 3D content would be mounted here if needed
   return (
     <div className={`fixed inset-0 -z-10 opacity-50 ${className}`}>
-      <Canvas 
-        camera={{ position: [0, 0, 5], fov: 75 }}
-        dpr={[1, 2]} // Limit pixel ratio to improve performance
-        gl={{ 
-          antialias: false, // Disable antialiasing for better performance
-          alpha: true,
-          powerPreference: 'default',
-          failIfMajorPerformanceCaveat: true
-        }}
-      >
-        <Suspense fallback={null}>
-          <Scene />
-        </Suspense>
-      </Canvas>
+      <div className="animate-pulse w-full h-full bg-gradient-radial from-purple-500/10 to-transparent"></div>
     </div>
   );
 };
