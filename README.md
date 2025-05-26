@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://tiny-talking-bot.lovable.app
+**URL**: https://portfolio-main-ten-peach.vercel.app
 ## How can I edit this code?
 
 There are several ways of editing your application.
