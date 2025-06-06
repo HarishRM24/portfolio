@@ -6,6 +6,13 @@ import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
+    title: "Conversational AI Platform for Mental Health",
+    description: "Developed an intelligent mental health assistant using LLMs (OpenAI GPT-4 + LangChain) that can answer user queries, suggest resources, and detect sentiment in conversations with privacy-preserving techniques.",
+    tags: ["OpenAI GPT-4", "LangChain", "Mental Health AI", "Sentiment Analysis", "Privacy-Preserving"],
+    githubLink: "https://github.com/HarishRM24/well-being-talk-space",
+    demoLink: "https://well-being-talk-space.lovable.app"
+  },
+  {
     title: "Federated Learning on Epilepsy Detection",
     description: "Developed a privacy-preserving deep learning model for epilepsy detection using EEG data, implementing Federated Learning across decentralized nodes while ensuring data privacy.",
     tags: ["CNN", "PyTorch", "PySyft", "Federated Learning", "Healthcare AI"],
