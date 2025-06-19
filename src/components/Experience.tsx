@@ -4,6 +4,13 @@ import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
+    title: "AI Engineer",
+    company: "LogisoftTech",
+    period: "Present",
+    description: "Currently working as an AI Engineer developing intelligent solutions and implementing machine learning models. Contributing to various AI projects and working with cutting-edge technologies to solve complex business problems.",
+    skills: ["Artificial Intelligence", "Machine Learning", "Python", "Deep Learning", "AI Solutions"]
+  },
+  {
     title: "Data Scientist Intern",
     company: "Smart Internz",
     period: "May - July 2023",
